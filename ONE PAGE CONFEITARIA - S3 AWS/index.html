@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Doce Encanto | Confeitaria Artesanal</title>
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      scroll-behavior:smooth;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body{
+      background:#fff8f5;
+      color:#4b2e2e;
+    }
+
+    /* HEADER */
+    header{
+      width:100%;
+      position:fixed;
+      top:0;
+      left:0;
+      background:#ffffffdd;
+      backdrop-filter: blur(8px);
+      z-index:1000;
+      border-bottom:1px solid #f0d6d6;
+    }
+
+    .container{
+      width:90%;
+      max-width:1200px;
+      margin:auto;
+    }
+
+    .nav{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:20px 0;
+    }
+
+    .logo{
+      font-size:28px;
+      font-weight:bold;
+      color:#d45d79;
+    }
+
+    .menu{
+      display:flex;
+      gap:20px;
+      list-style:none;
+    }
+
+    .menu a{
+      text-decoration:none;
+      color:#4b2e2e;
+      font-weight:bold;
+      transition:0.3s;
+    }
+
+    .menu a:hover{
+      color:#d45d79;
+    }
+
+    /* HERO */
+    .hero{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      background:linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.7)),
+      url('https://images.unsplash.com/photo-1551024601-bec78aea704b?q=80&w=1600&auto=format&fit=crop') center/cover;
+      padding-top:100px;
+    }
+
+    .hero-content{
+      max-width:600px;
+    }
+
+    .hero h1{
+      font-size:56px;
+      margin-bottom:20px;
+      color:#b23a48;
+    }
+
+    .hero p{
+      font-size:20px;
+      margin-bottom:30px;
+      line-height:1.6;
+    }
+
+    .btn{
+      display:inline-block;
+      padding:14px 28px;
+      background:#d45d79;
+      color:white;
+      text-decoration:none;
+      border-radius:50px;
+      font-weight:bold;
+      transition:0.3s;
+    }
+
+    .btn:hover{
+      background:#b23a48;
+      transform:translateY(-2px);
+    }
+
+    /* SECTIONS */
+    section{
+      padding:100px 0;
+    }
+
+    .section-title{
+      text-align:center;
+      margin-bottom:60px;
+    }
+
+    .section-title h2{
+      font-size:40px;
+      color:#b23a48;
+      margin-bottom:10px;
+    }
+
+    .section-title p{
+      color:#7a5c5c;
+    }
+
+    /* SOBRE */
+    .about{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:50px;
+      align-items:center;
+    }
+
+    .about img{
+      width:100%;
+      border-radius:20px;
+      box-shadow:0 10px 30px rgba(0,0,0,0.1);
+    }
+
+    .about-text p{
+      margin-bottom:20px;
+      line-height:1.8;
+    }
+
+    /* PRODUTOS */
+    .products-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:30px;
+    }
+
+    .card{
+      background:white;
+      border-radius:20px;
+      overflow:hidden;
+      box-shadow:0 5px 20px rgba(0,0,0,0.08);
+      transition:0.3s;
+    }
+
+    .card:hover{
+      transform:translateY(-8px);
+    }
+
+    .card img{
+      width:100%;
+      height:220px;
+      object-fit:cover;
+    }
+
+    .card-content{
+      padding:25px;
+    }
+
+    .card h3{
+      margin-bottom:10px;
+      color:#b23a48;
+    }
+
+    .card p{
+      line-height:1.6;
+      color:#666;
+    }
+
+    /* CONTATO */
+    .contact{
+      background:#ffeef2;
+      border-radius:30px;
+      padding:60px;
+      text-align:center;
+    }
+
+    .contact p{
+      margin:15px 0;
+      font-size:18px;
+    }
+
+    /* FOOTER */
+    footer{
+      background:#4b2e2e;
+      color:white;
+      text-align:center;
+      padding:30px 20px;
+      margin-top:80px;
+    }
+
+    footer p{
+      margin:5px 0;
+    }
+
+    /* RESPONSIVO */
+    @media(max-width:900px){
+
+      .hero h1{
+        font-size:42px;
+      }
+
+      .about{
+        grid-template-columns:1fr;
+      }
+
+      .menu{
+        gap:12px;
+      }
+
+    }
+
+    @media(max-width:600px){
+
+      .nav{
+        flex-direction:column;
+        gap:15px;
+      }
+
+      .hero{
+        text-align:center;
+      }
+
+      .hero h1{
+        font-size:34px;
+      }
+
+      .hero p{
+        font-size:18px;
+      }
+
+      .section-title h2{
+        font-size:32px;
+      }
+
+      .contact{
+        padding:40px 20px;
+      }
+
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="container nav">
+      <div class="logo">Doce Encanto</div>
+
+      <ul class="menu">
+        <li><a href="#inicio">Início</a></li>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#produtos">Produtos</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- MAIN -->
+  <main>
+
+    <!-- HERO -->
+    <section class="hero" id="inicio">
+      <div class="container">
+        <div class="hero-content">
+          <h1>Confeitaria Artesanal com Amor</h1>
+
+          <p>
+            Bolos, doces e sobremesas preparados com ingredientes selecionados,
+            sabor inesquecível e apresentação encantadora.
+          </p>
+
+          <a href="#produtos" class="btn">Conheça nossos doces</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOBRE -->
+    <section id="sobre">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Sobre Nós</h2>
+          <p>Uma experiência doce em cada detalhe</p>
+        </div>
+
+        <div class="about">
+
+          <img 
+            src="https://i.pinimg.com/736x/50/df/6a/50df6a7fa81f0964c8a1cb81e8d81f45.jpg" 
+            alt="Confeitaria"
+          />
+
+          <div class="about-text">
+            <p>
+              A Doce Encanto nasceu da paixão pela confeitaria artesanal e pelo
+              desejo de transformar momentos especiais em memórias inesquecíveis.
+            </p>
+
+            <p>
+              Trabalhamos com receitas exclusivas, ingredientes frescos e muito
+              carinho em cada produção.
+            </p>
+
+            <p>
+              Seja para aniversários, casamentos, eventos ou aquele momento de
+              indulgência, temos o doce perfeito para você.
+            </p>
+
+            <a href="#contato" class="btn">Fazer Pedido</a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- PRODUTOS -->
+    <section id="produtos">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Nossos Produtos</h2>
+          <p>Delícias preparadas diariamente</p>
+        </div>
+
+        <div class="products-grid">
+
+          <div class="card">
+            <img 
+              src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?q=80&w=1200&auto=format&fit=crop" 
+              alt="Bolo artesanal"
+            />
+
+            <div class="card-content">
+              <h3>Bolos Artesanais</h3>
+              <p>
+                Bolos personalizados com recheios especiais e decoração elegante.
+              </p>
+            </div>
+          </div>
+
+          <div class="card">
+            <img 
+              src="https://images.unsplash.com/photo-1486427944299-d1955d23e34d?q=80&w=1200&auto=format&fit=crop" 
+              alt="Cupcakes"
+            />
+
+            <div class="card-content">
+              <h3>Cupcakes</h3>
+              <p>
+                Pequenas delícias com coberturas criativas e sabores irresistíveis.
+              </p>
+            </div>
+          </div>
+
+          <div class="card">
+            <img 
+              src="https://images.unsplash.com/photo-1519869325930-281384150729?q=80&w=1200&auto=format&fit=crop" 
+              alt="Doces gourmet"
+            />
+
+            <div class="card-content">
+              <h3>Doces Gourmet</h3>
+              <p>
+                Brigadeiros, brownies e doces finos perfeitos para qualquer ocasião.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTATO -->
+    <section id="contato">
+      <div class="container">
+
+        <div class="contact">
+
+          <div class="section-title">
+            <h2>Entre em Contato</h2>
+            <p>Faça seu pedido ou solicite um orçamento</p>
+          </div>
+
+          <p><strong>WhatsApp:</strong> (61) 99999-9999</p>
+          <p><strong>Email:</strong> contato@doceencanto.com</p>
+          <p><strong>Instagram:</strong> @doceencanto</p>
+
+          <br />
+
+          <a href="#" class="btn">Solicitar Pedido</a>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 DoceTZ Encanto - Todos os direitos reservados.</p>
+    <p>Site desenvolvido para hospedagem estática.</p>
+  </footer>
+
+</body>
+</html>
